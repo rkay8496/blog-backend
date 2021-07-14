@@ -1,8 +1,10 @@
-const Rounter = require('koa-router');
-const posts = require('./posts');
+import Router from 'koa-router';
+import auth from './auth/index';
+import posts from './posts';
 
-const api = new Rounter();
+const api = new Router();
 
 api.use('/posts', posts.routes());
+api.use('/auth', auth.routes());
 
-module.exports = api;
+export default api;
